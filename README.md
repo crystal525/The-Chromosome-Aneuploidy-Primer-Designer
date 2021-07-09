@@ -42,7 +42,7 @@ $python ChAPDes.py
 
     - ##### "AFR" : African
 
-      	- ##### "AMR" : Ad Mixed American
+    - ##### "AMR" : Ad Mixed American
 
   - #### chrom_start : Start site of chosen chromosome.
 
@@ -122,6 +122,30 @@ extract_snp_info(path='raw_data/1000genomes/', popul='EAS', rf=0.1) #obtain SNP 
  - #### Linux 
 
  - #### Python 3
+   - ##### Install Python3
+   - ##### 1. Download Anaconda Python for Linux from [Anaconda Python](https://www.anaconda.com/products/individual).
+   
+    ```linux
+    $ wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
+    ```
+    - ##### 2. Check the intergrity of the Anaconda installer file and run the following conmmand to start.
+   
+    ```linux
+    $ bash Anaconda3-2021.05-Linux-x86_64.sh 
+    ```
+    - ##### Press <Enter> to continue the installation. Once you press <Enter>, you should see the license agreement of Anaconda. Press <Space Bar> to read more. Once you       are at the end of the license agreement, type ‘yes’ and press <Enter> to continue. Press <Enter> to leave the default for the directory where Anaconda will be installed.         The installation of Anaconda Python starts. It would take a long time. At the end of installation, type ‘yes’ to agree to add Anaconda Python to the PATH variable in your       system. Now, the installation of the Anaconda finished.
+  
+  - ##### 3. open a new Terminal to verify whether installation of the Anaconda succeed.
+    ```linux
+    $ conda –version 
+    ```
+  ##### If output is the correct version, Anaconda for Linux installs successfully.
+  
+  - ##### 4. Create Python environment.
+    ```linux
+    $ conda create -n python python=3.6
+	  $ source activate python 
+    ```  
 
  - #### Primer3
 
