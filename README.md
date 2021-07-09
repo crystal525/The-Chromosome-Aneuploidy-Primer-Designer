@@ -133,7 +133,7 @@ extract_snp_info(path='raw_data/1000genomes/', popul='EAS', rf=0.1) #obtain SNP 
     ```linux
     $ bash Anaconda3-2021.05-Linux-x86_64.sh 
     ```
-    	##### Press <Enter> to continue the installation. Once you press <Enter>, you should see the license agreement of Anaconda. Press <Space Bar> to read more. Once you       are at the end of the license agreement, type ‘yes’ and press <Enter> to continue. Press <Enter> to leave the default for the directory where Anaconda will be installed.         The installation of Anaconda Python starts. It would take a long time. At the end of installation, type ‘yes’ to agree to add Anaconda Python to the PATH variable in your       system. Now, the installation of the Anaconda finished.
+    ##### Press <Enter> to continue the installation. Once you press <Enter>, you should see the license agreement of Anaconda. Press <Space Bar> to read more. Once you       are at the end of the license agreement, type ‘yes’ and press <Enter> to continue. Press <Enter> to leave the default for the directory where Anaconda will be installed.         The installation of Anaconda Python starts. It would take a long time. At the end of installation, type ‘yes’ to agree to add Anaconda Python to the PATH variable in your       system. Now, the installation of the Anaconda finished.
   
     3. ##### open a new Terminal to verify whether installation of the Anaconda succeed.
 
@@ -157,18 +157,18 @@ extract_snp_info(path='raw_data/1000genomes/', popul='EAS', rf=0.1) #obtain SNP 
 
  - #### Primer3
    - #### Install Primer3
-   	##### Open a Terminal in Linux and run as follows to finish the installation.
-		   
-	    ```linux
-	    $ wget https://github.com/primer3-org/primer3/archive/v2.4.0.tar.gz
-	    $ tar zxf primer3-2.4.0.tar.gz
-	    $ cd primer3-2.4.0/src/
-	    $ make all
-	    $ make test # You should not see 'FAILED' during the tests.
-	    $ vim ~/.bashrc
-	    $ export PATH="/myevr/primer3-2.4.0/src:$PATH"
-	    $ Source ~/.bashrc
-	    ```
+   ##### Open a Terminal in Linux and run as follows to finish the installation.
+	
+    ```linux
+	$ wget https://github.com/primer3-org/primer3/archive/v2.4.0.tar.gz
+	$ tar zxf primer3-2.4.0.tar.gz
+	$ cd primer3-2.4.0/src/
+	$ make all
+	$ make test # You should not see 'FAILED' during the tests.
+	$ vim ~/.bashrc
+	$ export PATH="/myevr/primer3-2.4.0/src:$PATH"
+	$ Source ~/.bashrc
+	```
 
    - #### Run Primer3
 
