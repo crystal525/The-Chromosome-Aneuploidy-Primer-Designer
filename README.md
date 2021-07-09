@@ -151,6 +151,7 @@ extract_snp_info(path='raw_data/1000genomes/', popul='EAS', rf=0.1) #obtain SNP 
 	
    - #### Run Program in the Python3 environment
 		##### Prepare the program, run as follows.
+		
 		```linux
 	    	$ python Program.py 
 	   	```
@@ -159,7 +160,7 @@ extract_snp_info(path='raw_data/1000genomes/', popul='EAS', rf=0.1) #obtain SNP 
    - #### Install Primer3
 		##### Open a Terminal in Linux and run as follows to finish the installation.
 	
-	   	 ```linux
+	    	```linux
 	    	$ wget https://github.com/primer3-org/primer3/archive/v2.4.0.tar.gz
 	    	$ tar zxf primer3-2.4.0.tar.gz
 	    	$ cd primer3-2.4.0/src/
