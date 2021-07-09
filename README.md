@@ -133,23 +133,89 @@ extract_snp_info(path='raw_data/1000genomes/', popul='EAS', rf=0.1) #obtain SNP 
     ```linux
     $ bash Anaconda3-2021.05-Linux-x86_64.sh 
     ```
-    ##### Press <Enter> to continue the installation. Once you press <Enter>, you should see the license agreement of Anaconda. Press <Space Bar> to read more. Once you       are at the end of the license agreement, type ‘yes’ and press <Enter> to continue. Press <Enter> to leave the default for the directory where Anaconda will be installed.         The installation of Anaconda Python starts. It would take a long time. At the end of installation, type ‘yes’ to agree to add Anaconda Python to the PATH variable in your       system. Now, the installation of the Anaconda finished.
+    	##### Press <Enter> to continue the installation. Once you press <Enter>, you should see the license agreement of Anaconda. Press <Space Bar> to read more. Once you       are at the end of the license agreement, type ‘yes’ and press <Enter> to continue. Press <Enter> to leave the default for the directory where Anaconda will be installed.         The installation of Anaconda Python starts. It would take a long time. At the end of installation, type ‘yes’ to agree to add Anaconda Python to the PATH variable in your       system. Now, the installation of the Anaconda finished.
   
-  3. ##### open a new Terminal to verify whether installation of the Anaconda succeed.
+    3. ##### open a new Terminal to verify whether installation of the Anaconda succeed.
+
     ```linux
     $ conda –version 
     ```
-    ##### If output is the correct version, Anaconda for Linux installs successfully.
+    	##### If output the correct version, Anaconda for Linux installs successfully.
   
-  4. ##### Create Python environment.
+    4. ##### Create Python environment.
+   
     ```linux
     $ conda create -n python python=3.6
     $ source activate python 
-    ```  
-	
+    ```
+   - #### Run Program in the Python3 environment	
+   	##### Prepare the program, run as follows.
+	   
+    ```linux
+    $ python Program.py 
+    ```
 
  - #### Primer3
+   - #### Install Primer3
+   	##### Open a Terminal in Linux and run as follows to finish the installation.
+		   
+	    ```linux
+	    $ wget https://github.com/primer3-org/primer3/archive/v2.4.0.tar.gz
+	    $ tar zxf primer3-2.4.0.tar.gz
+	    $ cd primer3-2.4.0/src/
+	    $ make all
+	    $ make test # You should not see 'FAILED' during the tests.
+	    $ vim ~/.bashrc
+	    $ export PATH="/myevr/primer3-2.4.0/src:$PATH"
+	    $ Source ~/.bashrc
+	    ```
+
+   - #### Run Primer3
+
+	    ```linux
+	    $ ./Primer3_core input_file
+	    ```
 
  - #### BLAST 2.3.0+
+    - #### Install BLAST
+   	##### Open a Terminal in Linux and run as follows to finish the installation.
+		   
+	    ```linux
+	    $ wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
+	    $ tar -zxvf ncbi-blast-2.3.0+-x64-linux.tar.gz
+	    $ vim ~/.bashrc
+	    $ export PATH="/myevr/ncbi-blast-2.3.0+/bin:$PATH"
+	    $ Source ~/.bashrc
+	    ```
+
+   - #### Run BLAST
+
+	    ```linux
+	    $ blastn -query inputfile -db  databasefile -out outputfile
+	    ```
 
  - #### Bowtie2 2.3.3.1
+     - #### Install Bowtie2
+   	##### Open a Terminal in Linux and run as follows to finish the installation.
+	
+	    ```linux
+	    $ wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.3.1/bowtie2-2.3.3.1-linux-x86_64.zip/download
+	    $ unzip bowtie2-2.3.3.1-linux-x86_64.zip
+	    $ vim ~/.bashrc
+	    $ export PATH="/myevr/bowtie2-2.3.3.1-linux-x86_64:$PATH"
+	    $ Source ~/.bashrc
+	    ```
+
+   - #### Prepare the index file of Bowtie2
+
+	    ```linux
+	    $ bowtie2-build /myevr/ hg19.fa  /myevr/ hg19
+	    ```
+	    
+   - #### Run Bowtie2
+
+	    ```linux
+	    $ bowtie2 -1 inputfile1.fa -2 inputfile2.fa -x /myevr/hg19 -S outputfile.sam
+	    ```
+
+
