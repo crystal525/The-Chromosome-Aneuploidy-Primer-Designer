@@ -215,7 +215,6 @@ extract_snp_info(path='raw_data/1000genomes/', popul='EAS', rf=0.1) #obtain SNP 
 	    
    - #### Run Bowtie2
 
-
 	    	$ bowtie2 -1 inputfile1.fa -2 inputfile2.fa -x /myevr/hg19 -S outputfile.sam
 
 
