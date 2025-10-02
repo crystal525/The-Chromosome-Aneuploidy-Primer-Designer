@@ -119,8 +119,58 @@ def pipeline(chrom, popul, primer_type='a', chrom_start=None, chrom_end=None, te
     
 def main():
 """    main function of ChAPDes """
-    pipeline(chrom='chr21', popul='EAS') # an example to design the probes on chromosome 21 of Asian  
+    pipeline(chrom='chr21', popul='EAS') # an example to design the probes on chromosome 21 of Asian
+
+
+def ml_integration_example():
+    """
+    Example of integrating machine learning for enhanced primer design decisions.
+    This demonstrates how to use the imbalanced classification toolkit with ChAPDes results.
+    """
+    try:
+        from imbalanced_classifier import ImbalancedBinaryClassifier
+        from genomic_imbalanced_example import create_genomic_like_dataset
+
+        print("Machine Learning Integration Example")
+        print("=" * 50)
+
+        # Create example genomic data (normally this would come from primer design results)
+        X, y, feature_names = create_genomic_like_dataset(
+            n_samples=1000, n_features=20, imbalance_ratio=0.2
+        )
+
+        print(f"Example dataset: {X.shape[0]} samples, {X.shape[1]} features")
+        print(f"Class distribution: {y.value_counts().to_dict()}")
+
+        # Train a classifier on primer/genomic features
+        clf = ImbalancedBinaryClassifier(method='smote')
+        clf.fit(X, y, validation_split=0.2)
+
+        # Example prediction (normally on new primer candidates)
+        test_predictions = clf.predict(X[:10])
+        test_probabilities = clf.predict_proba(X[:10])
+
+        print(f"\nExample predictions: {test_predictions}")
+        print(f"Prediction probabilities shape: {test_probabilities.shape}")
+
+        # Evaluate performance
+        metrics = clf.evaluate()
+        print(f"\nModel F1-Score: {metrics['f1_score']".4f"}")
+        print(f"ROC AUC: {metrics['roc_auc']".4f"}")
+
+        print("\nML integration completed successfully!")
+        print("You can now use this classifier to predict primer performance,")
+        print("classify genomic variants, or enhance other ChAPDes decisions.")
+
+    except ImportError as e:
+        print(f"ML modules not available: {e}")
+        print("To use ML features, install required packages:")
+        print("pip install -r requirements_ml.txt")
 
 
 if __name__ == '__main__':
-    main() 
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == '--ml-example':
+        ml_integration_example()
+    else:
+        main() 
